@@ -5,6 +5,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 
 import android.os.Bundle
@@ -51,6 +52,14 @@ class Login_activity : AppCompatActivity() {
                 != PackageManager.PERMISSION_GRANTED) {
 verifyStoragePermissions(this)
         }
+
+        val preferencias = getSharedPreferences("variables", Context.MODE_PRIVATE)
+        var sesion=preferencias.getString("login", "").toString()
+        if(sesion=="sesioniniciada"){
+                val intent = Intent(this@Login_activity, MainActivity::class.java)
+                startActivity(intent)
+                finish();
+        }
         progressBar = findViewById<ProgressBar>(R.id.progress_Bar) as ProgressBar
 
     }
@@ -70,6 +79,7 @@ fun verifyStoragePermissions(activity: Activity) {
         }
     }
     fun entrar( view:View){
+        logiin.setBackgroundColor(Color.parseColor("#E89C54"))
         cell = _cellText.getText().toString()
         password = _passwordText.getText().toString()
         Logger.getLogger(Login_activity::class.java.name).warning(cell)
@@ -104,6 +114,7 @@ fun verifyStoragePermissions(activity: Activity) {
                     override fun onResponse(response: JSONObject) {
 
                         try {
+                            logiin.setBackgroundColor(Color.parseColor("#DF6F05"))
 
                             var mensaje = response.getInt("result")
 
@@ -147,7 +158,9 @@ fun verifyStoragePermissions(activity: Activity) {
                                 editor.putString("alerta", alerta)
                                 editor.putString("correo", correo)
                                 editor.putString("telefono", telefono)
-
+                                if(checkBox.isChecked) {
+                                    editor.putString("login", "sesioniniciada")
+                                }
 
                                 editor.commit()
 

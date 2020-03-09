@@ -2,6 +2,7 @@ package com.gesdes.android.conductor.appi_user
 
 import android.app.ProgressDialog
 import android.content.Context
+import android.content.Intent
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -22,6 +23,7 @@ import org.json.JSONObject
 import java.util.ArrayList
 import androidx.core.graphics.drawable.RoundedBitmapDrawable
 import android.graphics.Bitmap
+import android.graphics.Color
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import android.view.LayoutInflater
@@ -29,22 +31,25 @@ import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.view.View
+import androidx.core.content.ContextCompat.startActivity
 import android.widget.ImageView
+import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_login_activity.*
 import org.json.JSONArray
 
 
 class Detalle : AppCompatActivity() {
 
-var ciudadano=""
-    var telefono=""
+    var ciudadano = ""
+    var telefono = ""
     var pk = String()
+    var imagen = String()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalle)
         pk = intent.getStringExtra("PK").toString()
-        progress_Bar2.visibility=View.VISIBLE
+        progress_Bar2.visibility = View.VISIBLE
 
         detalle()
 
@@ -66,9 +71,10 @@ var ciudadano=""
         val jsonObjectRequest = object : JsonObjectRequest(
                 Request.Method.POST, "https://appis-apizaco.gesdesapplication.com/api/GetYellowIncidentDetail", datos,
                 object : Response.Listener<JSONObject> {
-                    override fun onResponse( response: JSONObject) {
+                    override fun onResponse(response: JSONObject) {
 
                         try {
+                            progress_Bar2.visibility = View.INVISIBLE
 
                             val result = response.get("result") as Int
 
@@ -79,30 +85,36 @@ var ciudadano=""
                                     dfecha.text = guias.getString("fechA_R")
                                     ciudadano = guias.getString("estatus")
                                     telefono = guias.getString("telefono")
-                                    var imagen = guias.getString("evidenciA_USUARIO")
+                                    imagen = guias.getString("evidenciA_USUARIO")
                                     dciudadano.text = ciudadano
-                                    dcelular.text =telefono
+                                    dcelular.text = telefono
                                     ddireccion.text = guias.getString("direccioN_USUARIO")
                                     ddescripcion.text = guias.getString("descripcioN_USUARIO")
                                     val decodedString1 = Base64.decode(imagen, Base64.DEFAULT)
                                     val decodedByte = BitmapFactory.decodeByteArray(decodedString1, 0, decodedString1.size)
                                     val roundedBitmapDrawable = RoundedBitmapDrawableFactory.create(resources, decodedByte)
                                     adinciona.setImageDrawable(roundedBitmapDrawable)
+                                    val preferencias = getSharedPreferences("variables", Context.MODE_PRIVATE)
+                                    val editor = preferencias.edit()
+
+                                    editor.putString("imagentemporal", imagen)
+                                    editor.commit()
+
                                     val comentarios = guias.getJSONArray("comentarios")
 
-                                    for (i in 1..comentarios.length()) {
+                                    for (i in 0..comentarios.length()) {
 
                                         if (comentarios.getJSONObject(i).getString("pK_CIUDADANO").isEmpty()) {
                                             addComment(false, "CENTRO DE MANDO", comentarios.getJSONObject(i).getString("comentario"), comentarios.getJSONObject(i).getString("usuariO_IMG"));
                                         } else {
                                             addComment(true, "CIUDADANO", comentarios.getJSONObject(i).getString("comentario"), comentarios.getJSONObject(i).getString("ciudadanO_IMG"));
                                         }
-                                        progress_Bar2.visibility=View.INVISIBLE
+                                        progress_Bar2.visibility = View.INVISIBLE
 
                                     }
                                 } catch (es: Exception) {
                                     Log.d("sergio1", "" + es.toString())
-                                    progress_Bar2.visibility=View.INVISIBLE
+                                    progress_Bar2.visibility = View.INVISIBLE
 
                                 }
 
@@ -111,7 +123,7 @@ var ciudadano=""
 
                         } catch (e: JSONException) {
                             e.printStackTrace()
-                            progress_Bar2.visibility=View.INVISIBLE
+                            progress_Bar2.visibility = View.INVISIBLE
 
                         }
 
@@ -146,6 +158,7 @@ var ciudadano=""
 
     private fun addComment(right: Boolean, nombre: String, comentario: String, img: String) {
         val constraintLayout: ConstraintLayout
+
         val inflater = LayoutInflater.from(this)
         val tvuser: TextView
         val tvComment: TextView
@@ -181,9 +194,11 @@ var ciudadano=""
 
     }
 
+
     fun registrarComentario(view: View) {
         var com = etComentarioAlertaAmarillaAdd.getText().toString()
         if(com!="") {
+            button4.setBackgroundColor(Color.parseColor("#5C85BF"))
 
             button4.isEnabled = false
 
@@ -192,12 +207,14 @@ var ciudadano=""
         }
     }
 
+
+
     fun registraComentarioDetalle() {
         progress_Bar1.visibility=View.VISIBLE
 
         val preferencias = this.getSharedPreferences("variables", Context.MODE_PRIVATE)
        var comentario = etComentarioAlertaAmarillaAdd.getText().toString()
-
+        etComentarioAlertaAmarillaAdd.setText("")
         var pkuser=preferencias.getString("pK1", "").toString()
         var tel=preferencias.getString("telefono", "").toString()
         var foto=preferencias.getString("imagen", "").toString()
@@ -223,6 +240,7 @@ var ciudadano=""
                     override fun onResponse(response: JSONObject) {
 
                         try {
+                            button4.setBackgroundColor(Color.parseColor("#052A5F"))
 
                             val result = response.get("result") as Int
 
@@ -280,4 +298,13 @@ var ciudadano=""
 
 
     }
+
+fun imagengrande(view: View){
+
+    val intent = Intent(this, Main2Activity::class.java)
+    startActivity(intent)
+
+
+}
+
 }

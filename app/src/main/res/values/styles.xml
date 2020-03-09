@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
@@ -10,4 +10,5 @@
     <style name="AppThemeMyLight" parent="Theme.AppCompat.Light">
         <item name="colorAccent">#0091ea</item>
     </style>
+
 </resources>

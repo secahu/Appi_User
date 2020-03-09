@@ -2,10 +2,9 @@ package com.gesdes.android.conductor.appi_user
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.android.volley.DefaultRetryPolicy
 import com.android.volley.Response
@@ -16,8 +15,10 @@ import com.gesdes.android.conductor.appi_user.Fragment.Perfil
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.FirebaseApp
 import com.google.firebase.iid.FirebaseInstanceId
+
 import org.json.JSONException
 import org.json.JSONObject
+
 
 class MainActivity : AppCompatActivity() {
     var TOKEN: String=""
@@ -27,10 +28,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val bottomNavigation: BottomNavigationView = findViewById(R.id.navigationViewinicio)
         bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-        val vent = Perfil.newInstance()
+        val vent = Incidencias.newInstance()
         openFragment(vent)
+agregaToken()
 
-
+    }
+    override fun onBackPressed() { // Añade más funciones si fuese necesario
+        super.onBackPressed() // Invoca al método
+        val vent = Incidencias.newInstance()
+        openFragment(vent)
     }
 
 
@@ -93,7 +99,7 @@ fun cerrarsesion(view: View){
 
         val requestQueue = Volley.newRequestQueue(this)
 
-        val jsonObjectRequest = object : JsonObjectRequest(com.android.volley.Request.Method.POST, "https://appi-atah.azurewebsites.net/api/UpdateTokenDriver", datos,
+        val jsonObjectRequest = object : JsonObjectRequest(com.android.volley.Request.Method.POST, "http://appis-apizaco.gesdesapplication.com/api/EditTokenUsuarios", datos,
                 Response.Listener { },
                 Response.ErrorListener { }
         ) {

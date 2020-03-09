@@ -1,4 +1,3 @@
-
 package com.gesdes.android.conductor.appi_user
 import IncidenciasModel
 import android.os.Bundle
@@ -62,7 +61,7 @@ class Incidenciasadapter() : RecyclerView.Adapter<Incidenciasadapter.ViewHolder>
             tvfecha.text=incidencia.FECHA
 
             itemView.setOnClickListener(View.OnClickListener {
-                val intent = Intent(context, Detalle::class.java)
+                    val intent = Intent(context, Detalle::class.java)
                 // start your next activity
                 var bund=Bundle()
                 bund.putString("pkcorrida","DFDS")

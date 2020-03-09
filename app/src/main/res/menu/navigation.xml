@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-            android:id="@+id/perfi"
-            android:icon="@drawable/perfil"
-            android:title="Mi Perfil"
-            />
-
-    <item
         android:id="@+id/incidencia"
-        android:icon="@drawable/guias"
-        android:title="Incidencias"/>
+        android:icon="@drawable/checklist"
+        android:title="Incidencias"
+
+        />
+    <item
+        android:id="@+id/perfi"
+        android:icon="@drawable/usuario"
+
+        android:title="Mi Perfil" />
+
+
 
 </menu>
