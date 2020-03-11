@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "416053569610",
-    "firebase_url": "https://appiincidenciasapizaco.firebaseio.com",
-    "project_id": "appiincidenciasapizaco",
-    "storage_bucket": "appiincidenciasapizaco.appspot.com"
+    "project_number": "887447058604",
+    "firebase_url": "https://appi-incidencias-apizaco.firebaseio.com",
+    "project_id": "appi-incidencias-apizaco",
+    "storage_bucket": "appi-incidencias-apizaco.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:416053569610:android:8adb5df601798c1c185eb3",
+        "mobilesdk_app_id": "1:887447058604:android:5873bb32ea283449c54709",
         "android_client_info": {
           "package_name": "com.gesdes.android.conductor.appi_user"
         }
       },
       "oauth_client": [
         {
-          "client_id": "416053569610-66qmj0tnosbd6mtvirm4a4j31bk8t4cn.apps.googleusercontent.com",
+          "client_id": "887447058604-uhnoa978nrivkbiah006722id30qt6j4.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC3t1PE-V7bZTz_0my_131FXMNp8TptUa8"
+          "current_key": "AIzaSyCuRzh-NXJ2rBU0xZw-ydzKidX2xQE3r00"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "416053569610-66qmj0tnosbd6mtvirm4a4j31bk8t4cn.apps.googleusercontent.com",
+              "client_id": "887447058604-uhnoa978nrivkbiah006722id30qt6j4.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -7,7 +7,9 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.android.volley.DefaultRetryPolicy
+import com.android.volley.Request
 import com.android.volley.Response
+import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.gesdes.android.conductor.appi_user.Fragment.Incidencias
@@ -23,9 +25,12 @@ import org.json.JSONObject
 class MainActivity : AppCompatActivity() {
     var TOKEN: String=""
 
+    var URL:String="https://appis-apizaco.gesdesapplication.com/api/"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        URL +="EditTokenUsuarios"
+
         val bottomNavigation: BottomNavigationView = findViewById(R.id.navigationViewinicio)
         bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         val vent = Incidencias.newInstance()
@@ -87,7 +92,6 @@ fun cerrarsesion(view: View){
         val preferencias = getSharedPreferences("variables", Context.MODE_PRIVATE)
         var use = preferencias.getString("usuario", "")
 
-        val jsonObject: JSONObject? = null
         val datos = JSONObject()
         try {
             datos.put("USUARIO", use)
@@ -99,9 +103,29 @@ fun cerrarsesion(view: View){
 
         val requestQueue = Volley.newRequestQueue(this)
 
-        val jsonObjectRequest = object : JsonObjectRequest(com.android.volley.Request.Method.POST, "http://appis-apizaco.gesdesapplication.com/api/EditTokenUsuarios", datos,
-                Response.Listener { },
-                Response.ErrorListener { }
+        val jsonObjectRequest = object : JsonObjectRequest(Request.Method.POST,URL, datos,
+                object : Response.Listener<JSONObject> {
+                    override fun onResponse(response: JSONObject) {
+
+                        try {
+
+                            var mensaje = response.getInt("result")
+
+
+
+
+                        } catch (e: JSONException) {
+                            e.printStackTrace()
+                        }
+
+
+                    }
+                },
+                object : Response.ErrorListener {
+                    override fun onErrorResponse(error: VolleyError) {
+
+                    }
+                }
         ) {
 
             //here I want to post data to sever
@@ -109,10 +133,12 @@ fun cerrarsesion(view: View){
 
         val MY_SOCKET_TIMEOUT_MS = 15000
         val maxRetries = 2
-        jsonObjectRequest.retryPolicy = DefaultRetryPolicy(
-                MY_SOCKET_TIMEOUT_MS,
-                maxRetries,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
+        jsonObjectRequest.setRetryPolicy(
+                DefaultRetryPolicy(
+                        MY_SOCKET_TIMEOUT_MS,
+                        maxRetries,
+                        DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
+                )
         )
 
         requestQueue.add(jsonObjectRequest)

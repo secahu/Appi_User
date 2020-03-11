@@ -1,6 +1,5 @@
 package com.gesdes.android.conductor.appi_user
 
-import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
@@ -17,25 +16,14 @@ import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_detalle.*
-import kotlinx.android.synthetic.main.fragment_perfil.*
 import org.json.JSONException
 import org.json.JSONObject
-import java.util.ArrayList
-import androidx.core.graphics.drawable.RoundedBitmapDrawable
-import android.graphics.Bitmap
 import android.graphics.Color
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import android.view.LayoutInflater
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.view.View
-import androidx.core.content.ContextCompat.startActivity
 import android.widget.ImageView
-import androidx.core.content.ContextCompat
-import kotlinx.android.synthetic.main.activity_login_activity.*
-import org.json.JSONArray
 
 
 class Detalle : AppCompatActivity() {
@@ -44,10 +32,13 @@ class Detalle : AppCompatActivity() {
     var telefono = ""
     var pk = String()
     var imagen = String()
-
+    var URL:String="https://appis-apizaco.gesdesapplication.com/api/"
+    var URL2:String="https://appis-apizaco.gesdesapplication.com/api/"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalle)
+        URL +="GetYellowIncidentDetail"
+        URL2 +="IncidenciasUserComentariosCreate"
         pk = intent.getStringExtra("PK").toString()
         progress_Bar2.visibility = View.VISIBLE
 
@@ -69,7 +60,7 @@ class Detalle : AppCompatActivity() {
         val requstQueue = Volley.newRequestQueue(this@Detalle)
 
         val jsonObjectRequest = object : JsonObjectRequest(
-                Request.Method.POST, "https://appis-apizaco.gesdesapplication.com/api/GetYellowIncidentDetail", datos,
+                Request.Method.POST, URL, datos,
                 object : Response.Listener<JSONObject> {
                     override fun onResponse(response: JSONObject) {
 
@@ -83,7 +74,7 @@ class Detalle : AppCompatActivity() {
 
                                     val guias = response.getJSONObject("alerta")
                                     dfecha.text = guias.getString("fechA_R")
-                                    ciudadano = guias.getString("estatus")
+                                    ciudadano = guias.getString("delito")
                                     telefono = guias.getString("telefono")
                                     imagen = guias.getString("evidenciA_USUARIO")
                                     dciudadano.text = ciudadano
@@ -234,7 +225,7 @@ class Detalle : AppCompatActivity() {
         val requstQueue = Volley.newRequestQueue(this@Detalle)
 
         val jsonObjectRequest = object : JsonObjectRequest(
-                Request.Method.POST, "https://appis-apizaco.gesdesapplication.com/api/IncidenciasUserComentariosCreate", datos,
+                Request.Method.POST, URL2, datos,
 
                 object : Response.Listener<JSONObject> {
                     override fun onResponse(response: JSONObject) {

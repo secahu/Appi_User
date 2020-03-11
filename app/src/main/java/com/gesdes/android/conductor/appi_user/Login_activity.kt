@@ -9,10 +9,7 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.AbsListView
-import android.widget.Button
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import com.android.volley.DefaultRetryPolicy
@@ -25,9 +22,6 @@ import kotlinx.android.synthetic.main.activity_login_activity.*
 import org.json.JSONException
 import org.json.JSONObject
 import java.util.logging.Logger
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.os.Handler
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -39,7 +33,7 @@ class Login_activity : AppCompatActivity() {
     private var i = 0
     private var txtView: TextView? = null
     private val handler = Handler()
-    var URL_API="https://appis-apizaco.gesdesapplication.com/api/AuthenticateUser"
+    var URL:String= "https://appis-apizaco.gesdesapplication.com/api/"
     var  PERMISSIONS_REQUEST = 100;
     var cell = ""
     var password = ""
@@ -47,7 +41,8 @@ class Login_activity : AppCompatActivity() {
     private val PERMISSIONS_STORAGE = arrayOf(Manifest.permission.INTERNET)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login_activity)
+            setContentView(R.layout.activity_login_activity)
+        URL +="AuthenticateUser"
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_CALENDAR)
                 != PackageManager.PERMISSION_GRANTED) {
 verifyStoragePermissions(this)
@@ -109,7 +104,7 @@ fun verifyStoragePermissions(activity: Activity) {
 
         val requstQueue = Volley.newRequestQueue(this)
 
-        val jsonObjectRequest = object : JsonObjectRequest(Request.Method.POST, URL_API, datos,
+            val jsonObjectRequest = object : JsonObjectRequest(Request.Method.POST,URL , datos,
                 object : Response.Listener<JSONObject> {
                     override fun onResponse(response: JSONObject) {
 

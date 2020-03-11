@@ -64,7 +64,6 @@
                 android:text="Fecha:"
                 android:textAlignment="center"
 
-                android:textColor="@color/design_default_color_background"
                 android:textSize="21dp" />
 
             <TextView
@@ -85,7 +84,7 @@
                     android:layout_below="@+id/dfecha"
                     android:layout_centerHorizontal="true"
                     android:background="@color/botonfondo"
-                    android:text="Estatus"
+                    android:text="Incidencia"
                     android:textAlignment="center"
 
                     android:textColor="#FFFFFF"

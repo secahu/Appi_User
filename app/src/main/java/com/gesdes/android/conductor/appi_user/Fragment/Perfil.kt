@@ -3,7 +3,6 @@ package com.gesdes.android.conductor.appi_user.Fragment
 import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Base64
@@ -24,7 +23,6 @@ class Perfil : Fragment() {
     }
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
             inflater.inflate(R.layout.fragment_perfil, container, false)
-
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onActivityCreated(state: Bundle?)
     {

@@ -1,7 +1,6 @@
 package com.gesdes.android.conductor.appi_user
 
 import android.R
-import android.app.Notification
 import android.app.NotificationManager
 import android.media.RingtoneManager
 import com.google.firebase.messaging.FirebaseMessagingService

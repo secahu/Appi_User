@@ -5,9 +5,7 @@ import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Base64
-import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import kotlinx.android.synthetic.main.activity_main2.*
 

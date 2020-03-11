@@ -3,19 +3,15 @@ import IncidenciasModel
 import android.os.Bundle
 import android.content.Context
 import android.content.Intent
-import android.os.Parcel
-import android.os.Parcelable
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 
 import java.util.*
-import java.util.logging.Logger
 
 
 class Incidenciasadapter() : RecyclerView.Adapter<Incidenciasadapter.ViewHolder>() {

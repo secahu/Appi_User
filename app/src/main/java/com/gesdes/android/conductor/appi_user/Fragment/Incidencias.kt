@@ -2,14 +2,11 @@ package com.gesdes.android.conductor.appi_user.Fragment
 
 import IncidenciasModel
 import android.content.Context
-import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -28,7 +25,6 @@ import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.fragment_incidencias.view.*
 import org.json.JSONException
 import org.json.JSONObject
-import java.util.logging.Logger
 
 import java.util.*
 
@@ -40,12 +36,11 @@ val mAdapter : Incidenciasadapter = Incidenciasadapter()
 class Incidencias : Fragment() {
 
     var listGuias= ArrayList<IncidenciasModel>()
-    var URL_API="https://appis-apizaco.gesdesapplication.com/api/GetYellowIncidensByUser"
-
+    var URL:String="https://appis-apizaco.gesdesapplication.com/api/"
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-
+URL +="GetYellowIncidensByUser"
         getGuiasSocio()
     }
 
@@ -92,7 +87,7 @@ class Incidencias : Fragment() {
         }
         val requstQueue = Volley.newRequestQueue(activity)
 
-        val jsonObjectRequest = object : JsonObjectRequest(Request.Method.POST, URL_API, datos,
+        val jsonObjectRequest = object : JsonObjectRequest(Request.Method.POST, URL, datos,
                 object : Response.Listener<JSONObject> {
                     override fun onResponse(response: JSONObject) {
 
@@ -136,7 +131,6 @@ class Incidencias : Fragment() {
                 },
                 object : Response.ErrorListener {
                     override fun onErrorResponse(error: VolleyError) {
-                        Toast.makeText(activity,"falta login  on error:"+error, Toast.LENGTH_LONG).show()
 
                     }
                 }
