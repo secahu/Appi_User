@@ -1,4 +1,4 @@
-package com.gesdes.android.conductor.appi_user
+package com.gesdes.android.conductor.polarlocatario
 
 import android.content.Context
 import android.content.Intent
@@ -12,8 +12,8 @@ import com.android.volley.Response
 import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
-import com.gesdes.android.conductor.appi_user.Fragment.Incidencias
-import com.gesdes.android.conductor.appi_user.Fragment.Perfil
+import com.gesdes.android.conductor.polarlocatario.Fragment.Incidencias
+import com.gesdes.android.conductor.polarlocatario.Fragment.Perfil
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.FirebaseApp
 import com.google.firebase.iid.FirebaseInstanceId
@@ -24,12 +24,11 @@ import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
     var TOKEN: String=""
-
-    var URL:String="https://appis-apizaco.gesdesapplication.com/api/"
+    var URL:String= ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        URL +="EditTokenUsuarios"
+       URL =  getString(R.string.URL) + "ActualizaTokenTiendas"
 
         val bottomNavigation: BottomNavigationView = findViewById(R.id.navigationViewinicio)
         bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
@@ -90,11 +89,11 @@ fun cerrarsesion(view: View){
 
     fun RegisterToken() {
         val preferencias = getSharedPreferences("variables", Context.MODE_PRIVATE)
-        var use = preferencias.getString("usuario", "")
+        var pk = preferencias.getString("pk", "")
 
         val datos = JSONObject()
         try {
-            datos.put("USUARIO", use)
+            datos.put("PK", pk)
             datos.put("TOKEN", TOKEN)
 
         } catch (e: JSONException) {
@@ -109,7 +108,7 @@ fun cerrarsesion(view: View){
 
                         try {
 
-                            var mensaje = response.getInt("result")
+                            var mensaje = response.getInt("resultado")
 
 
 

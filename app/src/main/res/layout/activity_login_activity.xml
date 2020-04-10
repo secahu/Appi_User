@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/fondo">
+    android:background="@color/white">
 
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@drawable/appi"
+        android:src="@drawable/polar"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:id="@+id/imgvw" />
@@ -28,12 +29,13 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:background="@color/botonfondo"
+            android:background="#FF5500"
             android:gravity="center"
             android:onClick="entrar"
             android:padding="15dp"
             android:text="Ingresar"
-            android:textColor="#fff"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#171616"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -55,11 +57,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:padding="16dp">
+
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
+                    android:layout_gravity="center"
                     android:src="@drawable/usuario"
-                    android:layout_gravity="center"/>
+                    android:tint="#FF5500" />
 
                 <EditText
                     android:id="@+id/_cellText"
@@ -70,15 +74,16 @@
                     android:hint="Usuario"
                     android:inputType="text"
                     android:letterSpacing="0.1"
-                    android:textColor="#fff"
-                    android:textColorHint="#fff"
+                    android:text="2414171115"
+                    android:textColor="@color/black"
 
+                    android:textColorHint="@color/black"
                     android:textSize="16dp" />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="#5fff">
+                android:background="#55050505">
 
             </LinearLayout>
             <LinearLayout
@@ -90,8 +95,9 @@
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
+                    android:layout_gravity="center"
                     android:src="@drawable/password"
-                    android:layout_gravity="center"/>
+                    android:tint="#FF5500" />
 
                 <EditText
                     android:id="@+id/_passwordText"
@@ -102,8 +108,8 @@
                     android:hint="Contraseña"
                     android:inputType="textPassword"
                     android:letterSpacing="0.1"
-                    android:textColor="#fff"
-                    android:textColorHint="#fff"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
 
                     android:textSize="16dp" />
 
@@ -112,12 +118,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#5fff">
+                android:background="#55000000">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
-                    android:background="#5fff"></LinearLayout>
+                    android:background="#55000000"
+                    tools:ignore="Suspicious0dp"></LinearLayout>
             </LinearLayout>
 
             <CheckBox
@@ -125,7 +132,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:text="Mantener sesiòn" />
+                android:buttonTint="#FF5500"
+                android:text="Mantener sesiòn"
+                android:textColor="#000000"
+                android:textColorHighlight="#0C0C0C"
+                android:textColorHint="#040303"
+                android:textColorLink="@color/botonfondo" />
 
         </LinearLayout>
     </LinearLayout>
@@ -140,8 +152,8 @@
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="39dp"
         android:gravity="top|center"
-        android:text="Gobierno Municipal de Apizaco"
-        android:textColor="#fff"
+        android:text="BIENVENIDO"
+        android:textColor="#0C0C0C"
         android:textSize="21dp"
         android:textStyle="bold" />
 

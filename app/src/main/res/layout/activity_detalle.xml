@@ -4,260 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".Detalle">
 
+    <TextView
+        android:id="@+id/tvMipedidoTitleDetallepedido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="Mi pedido"
+        android:textColor="@color/polarcolor"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <ListView
+        android:id="@+id/lvNotes"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:layoutAnimation="@anim/layout_animation"
+        app:layout_constraintBottom_toTopOf="@+id/tvTarifaPedidoDetalle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMipedidoTitleDetallepedido">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    </ListView>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/white">
+    <Button
+        android:id="@+id/tvTarifaPedidoDetalle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:text="Cambiar Estatus"
+        android:textSize="16sp"
+        android:background="@color/polarcolor"
+        app:layout_constraintBottom_toTopOf="@+id/tvTotalPedidoDetalle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-                <ImageView
-                    android:id="@+id/adinciona"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/Titulo"
-                    android:layout_marginTop="10dp"
-                    android:onClick="imagengrande"
-                    tools:srcCompat="@tools:sample/avatars" />
-
-                <TextView
-                    android:id="@+id/Titulo"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_centerHorizontal="true"
-                    android:background="@color/fondo"
-                    android:freezesText="true"
-                    android:text="DETALLES"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="32dp" />
-
-
-                <TextView
-                    android:id="@+id/inf"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/adinciona"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="40dp"
-                    android:text="Información:"
-                    android:textColor="@color/fondo"
-                    android:textSize="26dp" />
-
-            <TextView
-                android:id="@+id/cambiodeautobusv"
-                android:layout_width="300dp"
-                android:layout_height="33dp"
-                android:layout_below="@+id/inf"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:background="@color/botonfondo"
-                android:text="Fecha:"
-                android:textAlignment="center"
-
-                android:textSize="21dp" />
-
-            <TextView
-                android:id="@+id/dfecha"
-                android:layout_width="300dp"
-                android:layout_height="33dp"
-                android:layout_below="@+id/cambiodeautobusv"
-                android:layout_centerHorizontal="true"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-
-                android:textSize="21dp" />
-
-                <TextView
-                    android:id="@+id/autobus"
-                    android:layout_width="300dp"
-                    android:layout_height="33dp"
-                    android:layout_below="@+id/dfecha"
-                    android:layout_centerHorizontal="true"
-                    android:background="@color/botonfondo"
-                    android:text="Incidencia"
-                    android:textAlignment="center"
-
-                    android:textColor="#FFFFFF"
-                    android:textSize="21dp" />
-
-            <TextView
-                android:id="@+id/dciudadano"
-                android:layout_width="300dp"
-                android:layout_height="30dp"
-                android:layout_below="@+id/autobus"
-                android:layout_centerHorizontal="true"
-                android:textAlignment="center"
-
-                android:textColor="@color/black"
-                android:textSize="21dp" />
-
-            <TextView
-                android:id="@+id/asiento"
-                android:layout_width="300dp"
-                android:layout_height="33dp"
-                android:layout_below="@+id/dciudadano"
-                android:layout_centerHorizontal="true"
-                android:background="@color/botonfondo"
-                android:text="Celular"
-                android:textAlignment="center"
-                android:textColor="#FFFDFD"
-                android:textSize="21dp" />
-
-            <TextView
-                android:id="@+id/dcelular"
-                android:layout_width="300dp"
-                android:layout_height="30dp"
-                android:layout_below="@+id/asiento"
-                android:layout_centerHorizontal="true"
-                android:textAlignment="center"
-
-                android:textColor="@color/black"
-                android:textSize="21dp" />
-
-            <TextView
-                android:id="@+id/origen"
-                android:layout_width="300dp"
-                android:layout_height="33dp"
-                android:layout_below="@+id/dcelular"
-                android:layout_centerHorizontal="true"
-                android:background="@color/botonfondo"
-                android:text="Dirección"
-                android:textAlignment="center"
-
-                android:textColor="#FFFFFF"
-                android:textSize="21dp" />
-
-
-                <ProgressBar
-                    android:id="@+id/progress_Bar2"
-                    style="?android:attr/progressBarStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:layout_below="@id/Titulo"
-                    android:indeterminate="true"
-                    android:max="100"
-                    android:minWidth="200dp"
-                    android:minHeight="50dp"
-                    android:progress="0"
-                    android:visibility="invisible" />
-
-                <TextView
-                android:id="@+id/ddireccion"
-                android:layout_width="300dp"
-                android:layout_height="30dp"
-                android:layout_below="@+id/origen"
-                android:layout_centerHorizontal="true"
-                android:textAlignment="center"
-
-                android:textColor="@color/black"
-                android:textSize="21dp" />
-
-            <TextView
-                android:id="@+id/ddescripcion"
-                android:layout_width="300dp"
-                android:layout_height="30dp"
-                android:layout_below="@id/origen2"
-                android:layout_centerHorizontal="true"
-                android:textAlignment="center"
-
-                android:textColor="@color/black"
-                android:textSize="21dp" />
-
-            <TextView
-                android:id="@+id/origen2"
-                android:layout_width="300dp"
-                android:layout_height="33dp"
-                android:layout_below="@+id/ddireccion"
-                android:layout_centerHorizontal="true"
-                android:background="@color/botonfondo"
-                android:text="Descripcion"
-                android:textAlignment="center"
-
-                android:textColor="#FFFFFF"
-                android:textSize="21dp" />
-
-                <TextView
-                    android:id="@+id/inf2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/ddescripcion"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="20dp"
-                    android:text="Comentarios:"
-                    android:textColor="@color/fondo"
-                    android:textSize="26dp" />
-
-                <LinearLayout
-                    android:id="@+id/llComentarios"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/inf2"
-                    android:layout_marginBottom="20dp"
-                    android:orientation="vertical"></LinearLayout>
-
-                <EditText
-                    android:id="@+id/etComentarioAlertaAmarillaAdd"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/llComentarios"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="20dp"
-                    android:ems="10"
-                    android:hint="Introduce tu comentario..."
-                    android:inputType="textMultiLine"
-                    android:textColor="#000000"
-                    android:textColorHighlight="@color/black"
-                    android:textColorHint="@color/black"
-                    android:textColorLink="@color/botonfondo"
-                    android:textCursorDrawable="@color/botonfondo"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <ProgressBar
-                    android:id="@+id/progress_Bar1"
-                    style="?android:attr/progressBarStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:layout_below="@id/llComentarios"
-                    android:layout_marginTop="150dp"
-                    android:indeterminate="true"
-                    android:max="100"
-                    android:minWidth="200dp"
-                    android:minHeight="50dp"
-                    android:progress="0"
-                    android:visibility="invisible" />
-
-                <Button
-                    android:id="@+id/button4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/etComentarioAlertaAmarillaAdd"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="20dp"
-                    android:background="@color/fondo"
-                    android:onClick="registrarComentario"
-                    android:text="agregar comentario"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/etComentarioAlertaAmarillaAdd" />
-            </RelativeLayout>
-        </LinearLayout>
-
-
-
-    </ScrollView>
+    <TextView
+        android:id="@+id/tvTotalPedidoDetalle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:text=""
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

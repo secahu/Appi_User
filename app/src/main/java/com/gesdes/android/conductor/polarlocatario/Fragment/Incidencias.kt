@@ -1,4 +1,4 @@
-package com.gesdes.android.conductor.appi_user.Fragment
+package com.gesdes.android.conductor.polarlocatario.Fragment
 
 import IncidenciasModel
 import android.content.Context
@@ -7,13 +7,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-import com.gesdes.android.conductor.appi_user.Incidenciasadapter
+import com.gesdes.android.conductor.polarlocatario.Incidenciasadapter
 
-import com.gesdes.android.conductor.appi_user.R
+import com.gesdes.android.conductor.polarlocatario.R
 
 
 import com.android.volley.DefaultRetryPolicy
@@ -36,11 +35,11 @@ val mAdapter : Incidenciasadapter = Incidenciasadapter()
 class Incidencias : Fragment() {
 
     var listGuias= ArrayList<IncidenciasModel>()
-    var URL:String="https://appis-apizaco.gesdesapplication.com/api/"
+    var URL:String=""
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-URL +="GetYellowIncidensByUser"
+URL += getString(R.string.URL) + "ObtenerPedidosPorPkTienda"
         getGuiasSocio()
     }
 
@@ -68,19 +67,19 @@ URL +="GetYellowIncidensByUser"
     companion object {
 
         @JvmStatic
-        fun newInstance() =Incidencias()
+        fun newInstance() = Incidencias()
     }
 
     fun getGuiasSocio()
     {
 
         val preferencias = this.requireActivity().getSharedPreferences("variables", Context.MODE_PRIVATE)
-        var usuario = preferencias.getString("usuario", "")
+        var pk = preferencias.getString("pk", "")
 
 
         val datos = JSONObject()
         try {
-            datos.put("USUARIO",usuario )
+            datos.put("PK_TIENDA",pk )
 
         } catch (e: Exception) {
             e.printStackTrace()
@@ -93,23 +92,24 @@ URL +="GetYellowIncidensByUser"
 
                         try {
 
-                            var mensaje = response.getInt("result")
+                            var mensaje = response.getInt("resultado")
 
 
                             if (mensaje == 1) {
 
                                 try {
-                                    val guias = response.getJSONArray("alertas")
+                                    val guias = response.getJSONArray("pedidos")
                                     listGuias.clear()
                                     for(i in 0..(guias.length()-1)){
                                         var aux = IncidenciasModel()
-                                        aux.FOLIO="Folio: "+guias.getJSONObject(i).getString("folio")
-                                        aux.CIUDADANO="Ciudadano: "+guias.getJSONObject(i).getString("ciudadano")
+                                        aux.FOLIO="Repartidor: "+guias.getJSONObject(i).getString("repartidor")
+                                        aux.CIUDADANO="Ciudadano: "+guias.getJSONObject(i).getString("cliente")
                                         aux.ESTADO="Estatus: "+guias.getJSONObject(i).getString("estatus")
-                                        aux.PK1=guias.getJSONObject(i).getString("pK1")
-                                        aux.FECHA="Fecha: "+guias.getJSONObject(i).getString("fechA_R")
+                                        aux.PK1=guias.getJSONObject(i).getString("pk")
+                                        aux.FECHA="FOLIO: "+guias.getJSONObject(i).getString("pk")
 
                                         listGuias.add(aux)
+
                                     }
 
                                     mAdapter.RecyclerAdapter(listGuias, activity!!)

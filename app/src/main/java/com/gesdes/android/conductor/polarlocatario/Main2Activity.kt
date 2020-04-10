@@ -1,4 +1,4 @@
-package com.gesdes.android.conductor.appi_user
+package com.gesdes.android.conductor.polarlocatario
 
 import android.content.Context
 import android.graphics.BitmapFactory

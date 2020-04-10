@@ -23,7 +23,7 @@
         android:id="@+id/navigationViewinicio"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/fondo"
+        android:background="@color/colorpolar"
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"

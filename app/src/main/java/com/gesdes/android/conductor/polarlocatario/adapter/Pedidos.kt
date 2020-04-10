@@ -1,4 +1,4 @@
-package com.gesdes.android.conductor.appi_user
+package com.gesdes.android.conductor.polarlocatario
 import IncidenciasModel
 import android.os.Bundle
 import android.content.Context
@@ -10,11 +10,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.gesdes.android.conductor.polarlocatario.Fragment.Pedidosdetalle
 
 import java.util.*
 
 
-class Incidenciasadapter() : RecyclerView.Adapter<Incidenciasadapter.ViewHolder>() {
+class Pedidos() : RecyclerView.Adapter<Pedidos.ViewHolder>() {
 
     var incidenciasModel: MutableList<IncidenciasModel>  = ArrayList()
     lateinit var context:Context
@@ -26,14 +27,14 @@ class Incidenciasadapter() : RecyclerView.Adapter<Incidenciasadapter.ViewHolder>
         this.context = context
     }
 
-    override fun onBindViewHolder(holder: Incidenciasadapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: Pedidos.ViewHolder, position: Int) {
         val item = incidenciasModel.get(position)
         holder.bind(item, context)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return Incidenciasadapter.ViewHolder(layoutInflater.inflate(R.layout.incidencias_item, parent, false))
+        return Pedidos.ViewHolder(layoutInflater.inflate(R.layout.incidencias_item, parent, false))
     }
 
     override fun getItemCount(): Int {
@@ -57,7 +58,7 @@ class Incidenciasadapter() : RecyclerView.Adapter<Incidenciasadapter.ViewHolder>
             tvfecha.text=incidencia.FECHA
 
             itemView.setOnClickListener(View.OnClickListener {
-                    val intent = Intent(context, Detalle::class.java)
+                    val intent = Intent(context, Pedidosdetalle::class.java)
                 // start your next activity
                 var bund=Bundle()
                 bund.putString("pkcorrida","DFDS")

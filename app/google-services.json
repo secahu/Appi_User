@@ -1,35 +1,78 @@
 {
   "project_info": {
-    "project_number": "887447058604",
-    "firebase_url": "https://appi-incidencias-apizaco.firebaseio.com",
-    "project_id": "appi-incidencias-apizaco",
-    "storage_bucket": "appi-incidencias-apizaco.appspot.com"
+    "project_number": "927022050589",
+    "firebase_url": "https://polar-cb30c.firebaseio.com",
+    "project_id": "polar-cb30c",
+    "storage_bucket": "polar-cb30c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:887447058604:android:5873bb32ea283449c54709",
+        "mobilesdk_app_id": "1:927022050589:android:029d0b9e8d4c9b296145f4",
         "android_client_info": {
-          "package_name": "com.gesdes.android.conductor.appi_user"
+          "package_name": "com.gesdes.android.conductor.polarlocatario"
         }
       },
       "oauth_client": [
         {
-          "client_id": "887447058604-uhnoa978nrivkbiah006722id30qt6j4.apps.googleusercontent.com",
+          "client_id": "927022050589-gsca4nabaaodbgro42mrujmagcsnmdop.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCuRzh-NXJ2rBU0xZw-ydzKidX2xQE3r00"
+          "current_key": "AIzaSyCX8ZdQIspwNDPKrtL56QKzbiXPJXgTvzE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "887447058604-uhnoa978nrivkbiah006722id30qt6j4.apps.googleusercontent.com",
+              "client_id": "927022050589-gsca4nabaaodbgro42mrujmagcsnmdop.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "927022050589-k3dctq7nbca7ri94mh88il5r9rlib9p1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "gesdes.com.PolarIOS"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:927022050589:android:b3cbd070a094d8926145f4",
+        "android_client_info": {
+          "package_name": "com.gesdes.polar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "927022050589-gsca4nabaaodbgro42mrujmagcsnmdop.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCX8ZdQIspwNDPKrtL56QKzbiXPJXgTvzE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "927022050589-gsca4nabaaodbgro42mrujmagcsnmdop.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "927022050589-k3dctq7nbca7ri94mh88il5r9rlib9p1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "gesdes.com.PolarIOS"
+              }
             }
           ]
         }

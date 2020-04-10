@@ -1,4 +1,4 @@
-package com.gesdes.android.conductor.appi_user
+package com.gesdes.android.conductor.polarlocatario
 
 import android.Manifest
 import android.app.Activity
@@ -6,11 +6,14 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
-
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
+import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.android.volley.DefaultRetryPolicy
 import com.android.volley.Request
@@ -22,10 +25,6 @@ import kotlinx.android.synthetic.main.activity_login_activity.*
 import org.json.JSONException
 import org.json.JSONObject
 import java.util.logging.Logger
-import android.os.Handler
-import android.widget.ProgressBar
-import android.widget.TextView
-import androidx.core.app.ActivityCompat
 
 
 class Login_activity : AppCompatActivity() {
@@ -33,7 +32,7 @@ class Login_activity : AppCompatActivity() {
     private var i = 0
     private var txtView: TextView? = null
     private val handler = Handler()
-    var URL:String= "https://appis-apizaco.gesdesapplication.com/api/"
+    var URL:String= ""
     var  PERMISSIONS_REQUEST = 100;
     var cell = ""
     var password = ""
@@ -41,8 +40,9 @@ class Login_activity : AppCompatActivity() {
     private val PERMISSIONS_STORAGE = arrayOf(Manifest.permission.INTERNET)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-            setContentView(R.layout.activity_login_activity)
-        URL +="AuthenticateUser"
+        URL = getString(R.string.URL) + "TiendasLogin"
+        setContentView(R.layout.activity_login_activity)
+
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_CALENDAR)
                 != PackageManager.PERMISSION_GRANTED) {
 verifyStoragePermissions(this)
@@ -85,6 +85,7 @@ fun verifyStoragePermissions(activity: Activity) {
 
         jsonfincion()
 
+
     }
 
 
@@ -94,7 +95,7 @@ fun verifyStoragePermissions(activity: Activity) {
         val datos = JSONObject()
 
         try {
-            datos.put("USUARIO", cell)
+            datos.put("TELEFONO", cell)
             datos.put("PASSWORD", password)
             Logger.getLogger(Login_activity::class.java.name).warning(cell)
             Logger.getLogger(Login_activity::class.java.name).warning(password)
@@ -111,7 +112,7 @@ fun verifyStoragePermissions(activity: Activity) {
                         try {
                             logiin.setBackgroundColor(Color.parseColor("#DF6F05"))
 
-                            var mensaje = response.getInt("result")
+                            var mensaje = response.getInt("resultado")
 
 
                             if (mensaje == 1) {
@@ -122,35 +123,35 @@ fun verifyStoragePermissions(activity: Activity) {
 
 
                                 // start your next activity
-                                var json_data = response.getJSONObject("usuario")
+                                var json_data = response.getJSONObject("tienda")
 
-                                var pK1 = json_data.getString("pK1")
-                                var usuario = json_data.getString("usuario")
+                                var pK1 = json_data.getString("pk")
                                 var nombre = json_data.getString("nombre")
-                                var apaterno = json_data.getString("apaterno")
-                                var amaterno = json_data.getString("amaterno")
+                                var direccion = json_data.getString("direccion")
                                 var imagen = json_data.getString("imagen")
-                                var role = json_data.getString("role")
-                                var rol = json_data.getString("rol")
-                                var clasificacion = json_data.getString("clasificacion")
-                                var alerta = json_data.getString("alerta")
+
+                                var banco = json_data.getString("banco")
+                                var folio = json_data.getString("folio")
                                 var correo = json_data.getString("correo")
 
                                 var telefono = json_data.getString("telefono")
+                                var cuenta = json_data.getString("cuenta")
+                                var clabe = json_data.getString("clabe")
+                                var encargado = json_data.getString("encargado")
 
                                 val preferencias = getSharedPreferences("variables", Context.MODE_PRIVATE)
                                 val editor = preferencias.edit()
 
-                                editor.putString("pK1", pK1)
-                                editor.putString("usuario", usuario)
+
+                                editor.putString("pk", pK1)
                                 editor.putString("nombre", nombre)
-                                editor.putString("apaterno", apaterno)
-                                editor.putString("amaterno", amaterno)
+                                editor.putString("encargado", encargado)
+                                editor.putString("clabe", clabe)
                                 editor.putString("imagen", imagen)
-                                editor.putString("role", role)
-                                editor.putString("rol", rol)
-                                editor.putString("clasificacion", clasificacion)
-                                editor.putString("alerta", alerta)
+                                editor.putString("cuenta", cuenta)
+                                editor.putString("folio", folio)
+                                editor.putString("banco", banco)
+                                editor.putString("direccion", direccion)
                                 editor.putString("correo", correo)
                                 editor.putString("telefono", telefono)
                                 if(checkBox.isChecked) {

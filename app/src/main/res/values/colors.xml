@@ -8,5 +8,8 @@
     <color name="botonfondosubmit">#E89C54</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="polarcolor">#E73906</color>
+    <color name="polar" />
+    <color name="colorpolar">#FF5500</color>
 
 </resources>
