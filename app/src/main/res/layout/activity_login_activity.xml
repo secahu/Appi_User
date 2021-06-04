@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white">
 
+<<<<<<< Updated upstream
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
@@ -39,19 +40,22 @@
             android:textStyle="bold" />
     </LinearLayout>
 
+=======
+>>>>>>> Stashed changes
     <LinearLayout
+        android:id="@+id/lnrlyout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="280dp"
         android:gravity="center"
         android:paddingLeft="25dp"
-        android:paddingRight="25dp"
-        android:layout_marginTop="280dp"
-        android:id="@+id/lnrlyout">
+        android:paddingRight="25dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,8 +66,12 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_gravity="center"
+<<<<<<< Updated upstream
                     android:src="@drawable/usuario"
                     android:tint="#FF5500" />
+=======
+                    android:src="@drawable/user" />
+>>>>>>> Stashed changes
 
                 <EditText
                     android:id="@+id/_cellText"
@@ -80,12 +88,18 @@
                     android:textColorHint="@color/black"
                     android:textSize="16dp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
+<<<<<<< Updated upstream
                 android:background="#55050505">
 
             </LinearLayout>
+=======
+                android:background="#5fff"></LinearLayout>
+
+>>>>>>> Stashed changes
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -96,8 +110,12 @@
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:layout_gravity="center"
+<<<<<<< Updated upstream
                     android:src="@drawable/password"
                     android:tint="#FF5500" />
+=======
+                    android:src="@drawable/password" />
+>>>>>>> Stashed changes
 
                 <EditText
                     android:id="@+id/_passwordText"
@@ -105,7 +123,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:background="#00000000"
+<<<<<<< Updated upstream
                     android:hint="Contraseña"
+=======
+                    android:hint="Usuario"
+>>>>>>> Stashed changes
                     android:inputType="textPassword"
                     android:letterSpacing="0.1"
                     android:textColor="@color/black"
@@ -117,6 +139,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+<<<<<<< Updated upstream
                 android:layout_height="match_parent"
                 android:background="#55000000">
 
@@ -139,8 +162,22 @@
                 android:textColorHint="#040303"
                 android:textColorLink="@color/botonfondo" />
 
+=======
+                android:layout_height="0.5dp"
+                android:background="#5fff">
+
+            </LinearLayout>
+>>>>>>> Stashed changes
         </LinearLayout>
     </LinearLayout>
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/appi"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:id="@+id/imgvw" />
 
     <TextView
         android:id="@+id/bytes"
@@ -170,6 +207,30 @@
         android:minHeight="50dp"
         android:progress="0"
         android:visibility="invisible" />
+
+    <LinearLayout
+        android:id="@+id/buttoningresar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="450dp"
+        android:layout_marginRight="25dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/logiin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@color/botonfondo"
+            android:gravity="center"
+            android:onClick="entrar"
+            android:padding="15dp"
+            android:text="Ingresar"
+            android:textColor="#fff"
+            android:textStyle="bold" />
+    </LinearLayout>
 
 
 </RelativeLayout>

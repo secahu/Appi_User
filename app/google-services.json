@@ -1,33 +1,55 @@
 {
   "project_info": {
+<<<<<<< Updated upstream
     "project_number": "927022050589",
     "firebase_url": "https://polar-cb30c.firebaseio.com",
     "project_id": "polar-cb30c",
     "storage_bucket": "polar-cb30c.appspot.com"
+=======
+    "project_number": "416053569610",
+    "firebase_url": "https://appiincidenciasapizaco.firebaseio.com",
+    "project_id": "appiincidenciasapizaco",
+    "storage_bucket": "appiincidenciasapizaco.appspot.com"
+>>>>>>> Stashed changes
   },
   "client": [
     {
       "client_info": {
+<<<<<<< Updated upstream
         "mobilesdk_app_id": "1:927022050589:android:029d0b9e8d4c9b296145f4",
         "android_client_info": {
           "package_name": "com.gesdes.android.conductor.polarlocatario"
+=======
+        "mobilesdk_app_id": "1:416053569610:android:8adb5df601798c1c185eb3",
+        "android_client_info": {
+          "package_name": "com.gesdes.android.conductor.appi_user"
+>>>>>>> Stashed changes
         }
       },
       "oauth_client": [
         {
+<<<<<<< Updated upstream
           "client_id": "927022050589-gsca4nabaaodbgro42mrujmagcsnmdop.apps.googleusercontent.com",
+=======
+          "client_id": "416053569610-66qmj0tnosbd6mtvirm4a4j31bk8t4cn.apps.googleusercontent.com",
+>>>>>>> Stashed changes
           "client_type": 3
         }
       ],
       "api_key": [
         {
+<<<<<<< Updated upstream
           "current_key": "AIzaSyCX8ZdQIspwNDPKrtL56QKzbiXPJXgTvzE"
+=======
+          "current_key": "AIzaSyC3t1PE-V7bZTz_0my_131FXMNp8TptUa8"
+>>>>>>> Stashed changes
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
+<<<<<<< Updated upstream
               "client_id": "927022050589-gsca4nabaaodbgro42mrujmagcsnmdop.apps.googleusercontent.com",
               "client_type": 3
             },
@@ -73,6 +95,10 @@
               "ios_info": {
                 "bundle_id": "gesdes.com.PolarIOS"
               }
+=======
+              "client_id": "416053569610-66qmj0tnosbd6mtvirm4a4j31bk8t4cn.apps.googleusercontent.com",
+              "client_type": 3
+>>>>>>> Stashed changes
             }
           ]
         }

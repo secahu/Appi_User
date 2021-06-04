@@ -36,11 +36,16 @@ class MainActivity : AppCompatActivity() {
         openFragment(vent)
 agregaToken()
 
+<<<<<<< Updated upstream:app/src/main/java/com/gesdes/android/conductor/polarlocatario/MainActivity.kt
     }
     override fun onBackPressed() { // Añade más funciones si fuese necesario
         super.onBackPressed() // Invoca al método
         val vent = Incidencias.newInstance()
         openFragment(vent)
+=======
+
+
+>>>>>>> Stashed changes:app/src/main/java/com/gesdes/android/conductor/appi_user/MainActivity.kt
     }
 
 
@@ -80,11 +85,13 @@ fun cerrarsesion(view: View){
         this.finish();
     }
     fun agregaToken(){
-
+try{
         FirebaseApp.initializeApp(this)
         TOKEN = FirebaseInstanceId.getInstance().getToken().toString()
         RegisterToken()
-
+    } catch (e: JSONException) {
+        e.printStackTrace()
+    }
     }
 
     fun RegisterToken() {
@@ -102,6 +109,7 @@ fun cerrarsesion(view: View){
 
         val requestQueue = Volley.newRequestQueue(this)
 
+<<<<<<< Updated upstream:app/src/main/java/com/gesdes/android/conductor/polarlocatario/MainActivity.kt
         val jsonObjectRequest = object : JsonObjectRequest(Request.Method.POST,URL, datos,
                 object : Response.Listener<JSONObject> {
                     override fun onResponse(response: JSONObject) {
@@ -125,6 +133,11 @@ fun cerrarsesion(view: View){
 
                     }
                 }
+=======
+        val jsonObjectRequest = object : JsonObjectRequest(com.android.volley.Request.Method.POST, "http://appis-apizaco.gesdesapplication.com/api/EditTokenUsuarios", datos,
+                Response.Listener { },
+                Response.ErrorListener { }
+>>>>>>> Stashed changes:app/src/main/java/com/gesdes/android/conductor/appi_user/MainActivity.kt
         ) {
 
             //here I want to post data to sever
